@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7dd2qcnm1kcw"]
+
+[ext_resource type="Texture2D" uid="uid://b7rm5cocwtw2i" path="res://Ship3.png" id="1_1oj5k"]
+[ext_resource type="Script" uid="uid://cgfayaoq184jd" path="res://bb.gd" id="1_yx7mw"]
+[ext_resource type="Shader" uid="uid://cujfe525utth7" path="res://thrusters.gdshader" id="3_6bm6p"]
+[ext_resource type="Texture2D" uid="uid://bbjitchp2l47c" path="res://icon.svg" id="3_ykeeq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yx7mw"]
+radius = 91.0
+height = 182.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dugkq"]
+shader = ExtResource("3_6bm6p")
+
+[node name="MainGame" type="Node2D"]
+
+[node name="myPlayer" type="Area2D" parent="."]
+script = ExtResource("1_yx7mw")
+
+[node name="Ship" type="Sprite2D" parent="myPlayer"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_1oj5k")
+
+[node name="BoundingBoxCollisions" type="CollisionShape2D" parent="myPlayer"]
+shape = SubResource("CapsuleShape2D_yx7mw")
+
+[node name="FireThrusters" type="Sprite2D" parent="myPlayer"]
+material = SubResource("ShaderMaterial_dugkq")
+position = Vector2(0, 157)
+texture = ExtResource("3_ykeeq")
