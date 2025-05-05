@@ -17,8 +17,11 @@ func _process(delta: float) -> void:
 		self.rotate(-0.1)
 	if Input.is_action_pressed("acc"):
 		velocity.y -= 1
+		#$FireThrusters.material("fire_intensity",3)
+		
 	if Input.is_action_pressed("break"):
 		velocity.y += 1
+		#$firethrusters.material("fire_intensity",0)
 		#test2 - remove this comment
 	
 	if velocity.length() > 0:
@@ -28,4 +31,7 @@ func _process(delta: float) -> void:
 	position += velocity * delta
 	
 	position = position.clamp(Vector2.ZERO, screen_size)
-	#print(self.rotation)
+	print ($FireThrusters.get_canvas_item())
+	
+	
+	
