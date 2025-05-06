@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7dd2qcnm1kcw"]
+[gd_scene load_steps=9 format=3 uid="uid://b7dd2qcnm1kcw"]
 
 [ext_resource type="Texture2D" uid="uid://b7rm5cocwtw2i" path="res://Ship3.png" id="1_1oj5k"]
 [ext_resource type="Script" uid="uid://cgfayaoq184jd" path="res://bb.gd" id="1_yx7mw"]
@@ -10,6 +10,30 @@ radius = 91.0
 height = 182.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dugkq"]
+shader = ExtResource("3_6bm6p")
+shader_parameter/fire_color = Color(1, 0.33, 0.068, 1)
+shader_parameter/fire_power_factor = 2.0
+shader_parameter/fire_intensity = 0.0
+shader_parameter/fire_start = 1.0
+shader_parameter/ball_size = 1.0
+shader_parameter/roughness = 0.675
+shader_parameter/detail = 6
+shader_parameter/scale = 4.0
+shader_parameter/lacunarity = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bm6p"]
+shader = ExtResource("3_6bm6p")
+shader_parameter/fire_color = Color(1, 0.33, 0.068, 1)
+shader_parameter/fire_power_factor = 2.0
+shader_parameter/fire_intensity = 0.0
+shader_parameter/fire_start = 1.0
+shader_parameter/ball_size = 1.0
+shader_parameter/roughness = 0.675
+shader_parameter/detail = 6
+shader_parameter/scale = 4.0
+shader_parameter/lacunarity = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pltu"]
 shader = ExtResource("3_6bm6p")
 shader_parameter/fire_color = Color(1, 0.33, 0.068, 1)
 shader_parameter/fire_power_factor = 2.0
@@ -33,9 +57,23 @@ texture = ExtResource("1_1oj5k")
 [node name="BoundingBoxCollisions" type="CollisionShape2D" parent="myPlayer"]
 shape = SubResource("CapsuleShape2D_yx7mw")
 
-[node name="FireThrusters" type="Sprite2D" parent="myPlayer"]
+[node name="FireMainThrusters" type="Sprite2D" parent="myPlayer"]
 material = SubResource("ShaderMaterial_dugkq")
 position = Vector2(0, 143)
 rotation = -1.57177
 scale = Vector2(1, 0.759961)
+texture = ExtResource("3_ykeeq")
+
+[node name="FireRightThurster" type="Sprite2D" parent="myPlayer"]
+material = SubResource("ShaderMaterial_6bm6p")
+position = Vector2(-60, 95)
+rotation = -0.785398
+scale = Vector2(0.630425, 0.310026)
+texture = ExtResource("3_ykeeq")
+
+[node name="FireLeftThurster" type="Sprite2D" parent="myPlayer"]
+material = SubResource("ShaderMaterial_2pltu")
+position = Vector2(60, 95)
+rotation = -2.35619
+scale = Vector2(0.63, 0.26)
 texture = ExtResource("3_ykeeq")
