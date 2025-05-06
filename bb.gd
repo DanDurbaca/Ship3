@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	position += velocity * delta
 	
 	position = position.clamp(Vector2.ZERO, screen_size)
-	print ($FireThrusters.get_canvas_item())
+	$FireThrusters.material.set("shader_parameter/fire_intensity",3.0)
 	
 	
 	
